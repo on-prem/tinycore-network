@@ -10,7 +10,7 @@ A simple set of shell scripts for managing networking on [TinyCore Linux](http:/
 
 # Configuration
 
-The configuration file is located at `/usr/local/etc/network.conf`. It's a simpl key/value file similar to this:
+The configuration file is located at `/usr/local/etc/network.conf`. It's a simple key/value file similar to this:
 
 ```
 mode=static
@@ -22,8 +22,6 @@ dns="192.168.2.1 8.8.8.8 8.8.4.4"
 ```
 
 Possible modes are: `static` or `dhcp`.
-
-A default `network.conf` is installed and configured for `dhcp` on `eth0` (see: [network.conf](network.conf)).
 
 # Manual installation
 
