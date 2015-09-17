@@ -19,6 +19,7 @@ ip=192.168.2.2
 subnet=255.255.255.0
 router=192.168.2.1
 dns="192.168.2.1 8.8.8.8 8.8.4.4"
+hostname=mybox
 ```
 
 Possible modes are: `static` or `dhcp`.
@@ -35,6 +36,10 @@ To install these scripts manually:
 # How it works
 
 The `network.sh` script reads values from `network.conf`, sets them as temporary environment variables and passes them to either `network_static.sh` or `network_dhcp.sh`. Those scripts will use `udhcpc` to release or renew a DHCP lease.
+
+# Changelog
+
+See the [Changelog](CHANGELOG.md).
 
 # License
 

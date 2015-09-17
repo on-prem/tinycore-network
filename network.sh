@@ -12,6 +12,10 @@ config="/usr/local/etc/network.conf"
 if [ -f "$config" ]; then
   . $config
 
+  if [ "$hostname" ]; then
+    /usr/bin/sethostname $hostname
+  fi
+
   case "$mode" in
     static)
       /opt/network_static.sh
