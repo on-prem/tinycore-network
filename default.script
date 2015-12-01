@@ -29,6 +29,7 @@ case "$1" in
       while route del default gw 0.0.0.0 dev $interface ; do
         :
       done
+      [ -f "$IP_COMMAND" ] && $IP_COMMAND -6 route flush dev $interface
 
       metric=0
       for i in $router ; do
