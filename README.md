@@ -12,7 +12,15 @@ A simple set of shell scripts for managing networking on [TinyCore Linux](http:/
 
 The configuration file is located at `/usr/local/etc/network.conf`. It's a simple key/value file similar to this:
 
-### IPv4
+### dhcp (IPv4 only)
+
+```
+mode=dhcp
+interface=eth0
+hostname=mybox
+```
+
+### static IPv4
 
 ```
 mode=static
@@ -24,7 +32,7 @@ dns="8.8.8.8 8.8.4.4"
 hostname=mybox4
 ```
 
-### IPv6
+### static IPv6
 
 ```
 mode=static
@@ -42,8 +50,6 @@ Notes about IPv6:
 * IPv6 subnet length is defined through `subnet_ipv6`
 * DHCPv6 is not managed by these scripts, see [Dibbler](http://klub.com.pl/dhcpv6/)
 * [Privacy Extensions](http://www.tldp.org/HOWTO/Linux+IPv6-HOWTO/x1092.html) are not managed by these scripts
-
-Possible modes are: `static` or `dhcp`.
 
 # Manual installation
 
