@@ -55,10 +55,9 @@ Notes about IPv6:
 
 To install these scripts manually:
 
-* Copy `network.sh, network_dhcp.sh and network_static.sh` to `/opt/`
+* Copy `network.sh, network_dhcp.sh, network_static.sh, and udhcpc.script` to `/opt/`
 * Create and edit the config at `/usr/local/etc/network.conf`
 * Add '/opt/network.sh' to `/opt/bootsync.sh`
-* Copy `default.script` to `/usr/share/udhcpc/default.script`
 * Add the scripts and config file to `/opt/.filetool.lst` for persistence
 
 # How it works

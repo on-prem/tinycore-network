@@ -2,7 +2,7 @@
 
 ## 1.2.0 (2015-12-01)
 
-  * Add IPv6 support through custom udhcpc 'default.script'
+  * Add IPv6 support through custom DHCP events script: 'udhcpc.script'
 
 ## 1.1.0 (2015-09-17)
 

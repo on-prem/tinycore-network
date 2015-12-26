@@ -12,4 +12,4 @@ if [ -f "$pid" ]; then
   kill `cat $pid`
 fi
 
-/usr/share/udhcpc/default.script renew
+/opt/udhcpc.script renew
