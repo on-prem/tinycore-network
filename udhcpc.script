@@ -24,12 +24,15 @@ case "$1" in
       /sbin/ifconfig $interface $ip $BROADCAST $NETMASK
     fi
 
+    /sbin/ifconfig $interface | grep -q "inet addr"
+
     if [ -n "$router" ] ; then
       echo "deleting routers"
       while route del default gw 0.0.0.0 dev $interface ; do
         :
       done
-      [ -f "$IP_COMMAND" ] && $IP_COMMAND -6 route flush dev $interface
+
+      [ -n "$subnet_ipv6" ] && $IP_COMMAND -6 route flush dev $interface
 
       metric=0
       for i in $router ; do

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.0 (2016-02-12)
+
+  * Wait for devices & network interface to be UP
+
 ## 1.3.0 (2016-02-05)
 
   * Ensure udhcpc is restarted when hostname changes
