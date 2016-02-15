@@ -3,7 +3,7 @@
 # TinyCore static/dhcp networking
 #
 # MIT License
-# Copyright (c) 2015 Alexander Williams, Unscramble <license@unscramble.jp>
+# Copyright (c) 2015-2016 Alexander Williams, Unscramble <license@unscramble.jp>
 
 pid="/var/run/udhcpc.${interface}.pid"
 
@@ -12,4 +12,5 @@ if [ -f "$pid" ]; then
   kill `cat $pid`
 fi
 
-/usr/share/udhcpc/default.script renew
+/opt/udhcpc.script deconfig
+/opt/udhcpc.script renew

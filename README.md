@@ -12,23 +12,50 @@ A simple set of shell scripts for managing networking on [TinyCore Linux](http:/
 
 The configuration file is located at `/usr/local/etc/network.conf`. It's a simple key/value file similar to this:
 
+### dhcp (IPv4 only)
+
 ```
-mode=static
+mode=dhcp
 interface=eth0
-ip=192.168.2.2
-subnet=255.255.255.0
-router=192.168.2.1
-dns="192.168.2.1 8.8.8.8 8.8.4.4"
 hostname=mybox
 ```
 
-Possible modes are: `static` or `dhcp`.
+### static IPv4
+
+```
+mode=static
+interface=eth0
+ip=192.0.2.2
+subnet=255.255.255.0
+router=192.0.2.1
+dns="8.8.8.8 8.8.4.4"
+hostname=mybox4
+```
+
+### static IPv6
+
+```
+mode=static
+interface=eth0
+ip="2001:db8::2"
+subnet_ipv6="/32"
+router="2001:db8::1"
+dns="2001:4860:4860::8888 2001:4860:4860::8844"
+hostname=mybox6
+```
+
+Notes about IPv6:
+
+* IPv6 support requires the `ip` command from `iproute2` extension: `tce-load -wi iproute2`
+* IPv6 subnet length is defined through `subnet_ipv6`
+* DHCPv6 is not managed by these scripts, see [Dibbler](http://klub.com.pl/dhcpv6/)
+* [Privacy Extensions](http://www.tldp.org/HOWTO/Linux+IPv6-HOWTO/x1092.html) are not managed by these scripts
 
 # Manual installation
 
 To install these scripts manually:
 
-* Copy `network.sh, network_dhcp.sh and network_static.sh` to `/opt/`
+* Copy `network.sh, network_dhcp.sh, network_static.sh, and udhcpc.script` to `/opt/`
 * Create and edit the config at `/usr/local/etc/network.conf`
 * Add '/opt/network.sh' to `/opt/bootsync.sh`
 * Add the scripts and config file to `/opt/.filetool.lst` for persistence

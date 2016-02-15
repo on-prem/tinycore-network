@@ -3,11 +3,13 @@
 # TinyCore static/dhcp networking
 #
 # MIT License
-# Copyright (c) 2015 Alexander Williams, Unscramble <license@unscramble.jp>
+# Copyright (c) 2015-2016 Alexander Williams, Unscramble <license@unscramble.jp>
 
 set -a
 
 config="/usr/local/etc/network.conf"
+
+/sbin/udevadm settle --timeout=5
 
 if [ -f "$config" ]; then
   . $config
@@ -15,6 +17,10 @@ if [ -f "$config" ]; then
   if [ "$hostname" ]; then
     /usr/bin/sethostname $hostname
   fi
+
+  /sbin/ifconfig $interface up
+  echo "Waiting 5 seconds for interface $interface to be up"
+  sleep 5
 
   case "$mode" in
     static)
