@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.2.0 (2016-02-15)
+## 1.2.0 (2016-03-03)
 
   * Add IPv6 support through custom DHCP events script: 'udhcpc.script'
   * Wait for devices & network interface to be UP

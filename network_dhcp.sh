@@ -11,5 +11,4 @@ if [ -f "$pid" ]; then
   kill `cat $pid`
 fi
 
-/opt/udhcpc.script deconfig
-/sbin/udhcpc -b -i $interface -x hostname:$(/bin/hostname) -p $pid -s /opt/udhcpc.script >/dev/null 2>&1 &
+/sbin/udhcpc -b -i $interface -x hostname:$(/bin/hostname) -p $pid -s /opt/udhcpc.script >/dev/null 2>&1

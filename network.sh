@@ -19,7 +19,7 @@ if [ -f "$config" ]; then
   fi
 
   /sbin/ifconfig $interface up
-  echo "Waiting 5 seconds for interface $interface to be up"
+  echo "Waiting for interface $interface to be up"
   sleep 5
 
   case "$mode" in
