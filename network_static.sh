@@ -12,5 +12,5 @@ if [ -f "$pid" ]; then
   kill `cat $pid`
 fi
 
-/opt/udhcpc.script deconfig
-/opt/udhcpc.script renew
+/opt/udhcpc.script deconfig >>/var/log/udhcpc.log 2>&1
+/opt/udhcpc.script renew >>/var/log/udhcpc.log 2>&1

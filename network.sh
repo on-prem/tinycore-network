@@ -5,6 +5,7 @@
 # MIT License
 # Copyright (c) 2015-2016 Alexander Williams, Unscramble <license@unscramble.jp>
 
+. /etc/init.d/tc-functions
 set -a
 
 config="/usr/local/etc/network.conf"
@@ -19,7 +20,7 @@ if [ -f "$config" ]; then
   fi
 
   /sbin/ifconfig $interface up
-  echo "Waiting for interface $interface to be up"
+  echo "${GREEN}Waiting for interface ${YELLOW}$interface${GREEN} to be up...${NORMAL}"
   sleep 5
 
   case "$mode" in
@@ -31,7 +32,7 @@ if [ -f "$config" ]; then
       ;;
   esac
 else
-  echo "Missing network config: $config"
+  echo "${RED}Missing network config: ${YELLOW}${config}${NORMAL}"
   exit 1
 fi
 
