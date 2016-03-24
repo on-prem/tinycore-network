@@ -1,8 +1,9 @@
 #!/bin/sh
-
 # udhcpc script edited by Tim Riker <Tim@Rikers.org>
 #
 # IPv6 support added by Alexander Williams <license@unscramble.jp>
+#
+# GPL-V2 License
 
 [ -z "$1" ] && echo "Error: should be called from udhcpc" && exit 1
 

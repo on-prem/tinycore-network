@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.3.0 (2016-03-24)
+
+  * Add original udhcpc.script from BusyBox
+  * Add LICENSE-GPL for BusyBox's udhcpc scripts
+
 ## 1.2.1 (2016-03-23)
 
   * Log static/dhcp output to `/var/log/udhcpc.log`

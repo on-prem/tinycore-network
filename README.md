@@ -71,3 +71,8 @@ See the [Changelog](CHANGELOG.md).
 # License
 
 This project is MIT licensed, see the [LICENSE](LICENSE) file for more info.
+
+The following files are licensed under [GPL-V2](LICENSE-GPL):
+
+* udhcpc.script
+* udhcpc.script.orig
