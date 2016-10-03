@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.4.0 (2016-10-03)
+
+  * Change script output colour
+  * Manually manage /etc/hosts instead of calling sethostname
+
 ## 1.3.0 (2016-03-24)
 
   * Add original udhcpc.script from BusyBox

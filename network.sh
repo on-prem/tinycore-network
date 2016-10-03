@@ -16,12 +16,17 @@ if [ -f "$config" ]; then
   . $config
 
   if [ "$hostname" ]; then
-    /usr/bin/sethostname $hostname
+    echo -n "${GREEN}Setting hostname to ${MAGENTA}$hostname${NORMAL}"
+    sed -i "/^127.0.0.1/c\127.0.0.1 $hostname localhost localhost.local" /etc/hosts
+    echo "$hostname" > /etc/hostname
+    hostname "$hostname"
+    echo "${GREEN} Done.${NORMAL}"
   fi
 
   /sbin/ifconfig $interface up
-  echo "${GREEN}Waiting for interface ${YELLOW}$interface${GREEN} to be up...${NORMAL}"
+  echo -n "${GREEN}Waiting for interface ${MAGENTA}$interface${GREEN} to be up...${NORMAL}"
   sleep 5
+  echo "${GREEN} Done.${NORMAL}"
 
   case "$mode" in
     static)
@@ -32,7 +37,7 @@ if [ -f "$config" ]; then
       ;;
   esac
 else
-  echo "${RED}Missing network config: ${YELLOW}${config}${NORMAL}"
+  echo "${RED}Missing network config: ${RED}${config}${NORMAL}"
   exit 1
 fi
 
