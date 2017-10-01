@@ -18,6 +18,7 @@ The configuration file is located at `/usr/local/etc/network.conf`. It's a simpl
 mode=dhcp
 interface=eth0
 hostname=mybox
+ntpserver=pool.ntp.org
 ```
 
 ### static IPv4
@@ -30,6 +31,7 @@ subnet=255.255.255.0
 router=192.0.2.1
 dns="8.8.8.8 8.8.4.4"
 hostname=mybox4
+ntpserver=pool.ntp.org
 ```
 
 ### static IPv6
@@ -42,6 +44,7 @@ subnet_ipv6="/32"
 router="2001:db8::1"
 dns="2001:4860:4860::8888 2001:4860:4860::8844"
 hostname=mybox6
+ntpserver=pool.ntp.org
 ```
 
 Notes about IPv6:

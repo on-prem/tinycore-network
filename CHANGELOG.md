@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.5.0 (2017-10-01)
+
+  * Configure NTP settings if `ntpserver` is provided
+  * Change NTP server timeout to 30 seconds
+  * Change console message when bringing up interface
+
 ## 1.4.0 (2016-10-03)
 
   * Change script output colour
