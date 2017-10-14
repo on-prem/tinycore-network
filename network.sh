@@ -11,6 +11,7 @@ set -a
 config="/usr/local/etc/network.conf"
 ntp_tries=0
 ntptimeout=30 # seconds
+interface_tries=0
 
 /sbin/udevadm settle --timeout=5
 
@@ -20,6 +21,15 @@ set_ntpdate() {
     if [ "$ntp_tries" -le "$ntptimeout" ]; then
       /usr/bin/timeout -t 10 /usr/sbin/ntpd -d -n -q -p "$ntpserver" >/dev/null 2>&1 || set_ntpdate
     fi
+  fi
+}
+
+check_interface() {
+  interface_tries=$(( $interface_tries + 1 ))
+  if [ "$interface_tries" -le 10 ]; then # wait up to 10 seconds
+    echo -n "."
+    sleep 1
+    /sbin/ifconfig $interface 2>&1 | grep HWaddr >/dev/null 2>&1 || check_interface
   fi
 }
 
@@ -36,6 +46,8 @@ if [ -f "$config" ]; then
 
   echo -n "${GREEN}Bringing up interface ${MAGENTA}$interface${GREEN}${NORMAL}"
   /sbin/ifconfig $interface up
+  # ensure the interface is actually up
+  check_interface
   echo "${GREEN} Done.${NORMAL}"
 
   if [ "$ntpserver" ]; then

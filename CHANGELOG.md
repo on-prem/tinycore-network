@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.6.0 (2017-10-14)
+
+  * Restore "sleep" (10s) while waiting for network interface
+  * Ensure udhcpc pid file is removed after killing the process
+
 ## 1.5.0 (2017-10-01)
 
   * Configure NTP settings if `ntpserver` is provided
