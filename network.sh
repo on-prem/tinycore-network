@@ -5,7 +5,7 @@
 # MIT License
 # Copyright (c) 2015-2017 Alexander Williams, Unscramble <license@unscramble.jp>
 #
-# VERSION: 1.7.0
+# VERSION: 1.8.0
 
 . /etc/init.d/tc-functions
 set -a
@@ -18,11 +18,22 @@ interface_tries=0
 
 /sbin/udevadm settle --timeout=5
 
+check_status() {
+  if [ "$?" = 1 ]; then
+    echo "${RED} Failed.${NORMAL}"
+  else
+    echo "${GREEN} Done.${NORMAL}"
+  fi
+}
+
 set_ntpdate() {
   if [ ${ntpserver-} ]; then
     ntp_tries=$(( $ntp_tries + $ntpretry ))
     if [ "$ntp_tries" -le "$ntptimeout" ]; then
+      echo -n "."
       /usr/bin/timeout -t $ntpretry /usr/sbin/ntpd -d -n -q -p "$ntpserver" >>/var/log/ntp.log 2>&1 || set_ntpdate
+    else
+      return 1
     fi
   fi
 }
@@ -33,6 +44,8 @@ check_interface() {
     echo -n "."
     sleep 1
     /sbin/ifconfig $interface 2>&1 | grep HWaddr >/dev/null 2>&1 || check_interface
+  else
+    return 1
   fi
 }
 
@@ -51,7 +64,7 @@ if [ -f "$config" ]; then
   /sbin/ifconfig $interface up
   # ensure the interface is actually up
   check_interface
-  echo "${GREEN} Done.${NORMAL}"
+  check_status
 
   case "$mode" in
     static)
@@ -67,7 +80,7 @@ if [ -f "$config" ]; then
     echo -n "${GREEN}Waiting up to ${MAGENTA}${ntptimeout}s${GREEN} for NTP from ${MAGENTA}$ntpserver${NORMAL}"
     echo "$ntpserver" > /etc/sysconfig/ntpserver
     set_ntpdate
-    echo "${GREEN} Done.${NORMAL}"
+    check_status
   else
     > /etc/sysconfig/ntpserver
   fi

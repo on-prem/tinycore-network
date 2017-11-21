@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.8.0 (2017-11-21)
+
+  * Display 'Failed' if the IP or NTP configuration fails
+
 ## 1.7.0 (2017-11-21)
 
   * [bugfix] Ensure NTP is configured after the interface is configured
