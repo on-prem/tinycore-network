@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.7.0 (2017-11-21)
+
+  * [bugfix] Ensure NTP is configured after the interface is configured
+  * Increase NTP server timeout to 60 seconds (20 seconds per attempt)
+  * Send NTP setup queries to log file
+  * Add module.l with module info
+
 ## 1.6.0 (2017-10-14)
 
   * Restore "sleep" (10s) while waiting for network interface
