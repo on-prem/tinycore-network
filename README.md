@@ -4,6 +4,8 @@
 
 A simple set of shell scripts for managing networking on [TinyCore Linux](http://tinycorelinux.net/)
 
+![tinycore-network](https://user-images.githubusercontent.com/153401/33258367-3b969774-d351-11e7-90e2-071b039473c9.png)
+
 # Installation
 
 `tce-load -wi network`
