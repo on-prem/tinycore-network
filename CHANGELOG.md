@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.9.0 (2018-02-22)
+
+  * [bugfix] IPv6 routes should be removed before configuring the IP, not after
+
 ## 1.8.0 (2017-11-21)
 
   * Display 'Failed' if the IP or NTP configuration fails

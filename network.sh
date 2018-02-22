@@ -3,9 +3,9 @@
 # TinyCore static/dhcp networking
 #
 # MIT License
-# Copyright (c) 2015-2017 Alexander Williams, Unscramble <license@unscramble.jp>
+# Copyright (c) 2015-2018 Alexander Williams, Unscramble <license@unscramble.jp>
 #
-# VERSION: 1.8.0
+# VERSION: 1.9.0
 
 . /etc/init.d/tc-functions
 set -a
