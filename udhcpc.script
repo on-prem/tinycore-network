@@ -50,7 +50,7 @@ case "$1" in
       done
     fi
 
-    echo -n > $RESOLV_CONF
+    [ -n "$domain" ] || [ -n "$dns" ] && echo -n > $RESOLV_CONF
     [ -n "$domain" ] && echo search $domain >> $RESOLV_CONF
     for i in $dns ; do
       echo "adding dns $i"

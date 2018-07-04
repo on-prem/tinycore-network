@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.10.0 (2018-07-04)
+
+  * [bugfix] Only wipe `/etc/resolv.conf` if a domain or dns entry exists
+
 ## 1.9.0 (2018-02-22)
 
   * [bugfix] IPv6 routes should be removed before configuring the IP, not after
