@@ -1,6 +1,6 @@
 # TinyCore static/dhcp networking
 
-[![GitHub release](https://img.shields.io/github/release/aw/tinycore-network.svg)](https://github.com/aw/tinycore-network)
+[![GitHub release](https://img.shields.io/github/release/on-prem/tinycore-network.svg)](https://github.com/on-prem/tinycore-network)
 
 A simple set of shell scripts for managing networking on [TinyCore Linux](http://tinycorelinux.net/)
 
