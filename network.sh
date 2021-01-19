@@ -3,9 +3,9 @@
 # TinyCore static/dhcp networking
 #
 # MIT License
-# Copyright (c) 2015-2018 Alexander Williams, Unscramble <license@unscramble.jp>
+# Copyright (c) 2015-2021 Alexander Williams, Unscramble <license@unscramble.jp>
 #
-# VERSION: 1.9.0
+# VERSION: 1.11.0
 
 . /etc/init.d/tc-functions
 set -a
@@ -15,6 +15,7 @@ ntp_tries=0
 ntptimeout=60 # seconds
 ntpretry=20   # seconds
 interface_tries=0
+dasht="-t"
 
 /sbin/udevadm settle --timeout=5
 
@@ -31,7 +32,11 @@ set_ntpdate() {
     ntp_tries=$(( $ntp_tries + $ntpretry ))
     if [ "$ntp_tries" -le "$ntptimeout" ]; then
       echo -n "."
-      /usr/bin/timeout -t $ntpretry /usr/sbin/ntpd -d -n -q -p "$ntpserver" >>/var/log/ntp.log 2>&1 || set_ntpdate
+      /usr/bin/timeout 2>&1 | grep -q '\-t SECS'
+      if [ "$?" = 1 ]; then
+        dasht=""
+      fi
+      /usr/bin/timeout "$dasht" $ntpretry /usr/sbin/ntpd -d -n -q -p "$ntpserver" >>/var/log/ntp.log 2>&1 || set_ntpdate
     else
       return 1
     fi

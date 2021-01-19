@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.11.0 (2021-01-19)
+
+  * Add backward compatible bugfix for newer versions of Busybox 'timeout'
+
 ## 1.10.0 (2018-07-04)
 
   * [bugfix] Only wipe `/etc/resolv.conf` if a domain or dns entry exists
