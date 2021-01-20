@@ -1,6 +1,6 @@
 [de MODULE_INFO
   ("name"       "tinycore-network")
-  ("version"    "1.11.0")
+  ("version"    "1.11.1")
   ("summary"    "TinyCore static/dhcp networking")
   ("source"     "https://on-premises.com")
   ("author"     "Alexander Williams")

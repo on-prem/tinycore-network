@@ -5,7 +5,7 @@
 # MIT License
 # Copyright (c) 2015-2021 Alexander Williams, Unscramble <license@unscramble.jp>
 #
-# VERSION: 1.11.0
+# VERSION: 1.11.1
 
 . /etc/init.d/tc-functions
 set -a
@@ -36,7 +36,7 @@ set_ntpdate() {
       if [ "$?" = 1 ]; then
         dasht=""
       fi
-      /usr/bin/timeout "$dasht" $ntpretry /usr/sbin/ntpd -d -n -q -p "$ntpserver" >>/var/log/ntp.log 2>&1 || set_ntpdate
+      /usr/bin/timeout $dasht $ntpretry /usr/sbin/ntpd -d -n -q -p "$ntpserver" >>/var/log/ntp.log 2>&1 || set_ntpdate
     else
       return 1
     fi

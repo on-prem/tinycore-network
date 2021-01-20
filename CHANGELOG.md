@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.11.1 (2021-01-20)
+
+  * [bugfix] Fix bug in timeout call introduced in v1.11.0
+
 ## 1.11.0 (2021-01-19)
 
   * Add backward compatible bugfix for newer versions of Busybox 'timeout'
